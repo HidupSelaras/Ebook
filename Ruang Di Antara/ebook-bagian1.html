@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebook - Ruang Di Antara (Bagian 1)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Caveat:wght@600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #525659;
+            color: #1e293b;
+            margin: 0;
+            padding: 0;
+        }
+
+        .font-book { font-family: 'Lora', serif; }
+        .font-quote { font-family: 'Caveat', cursive; }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: #F7FCFB;
+            padding: 25mm 20mm;
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .cover-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, #0A5D54 0%, #14b8a6 50%, #3AE2D6 100%);
+            z-index: 0;
+        }
+
+        .chapter-title {
+            font-family: 'Inter', sans-serif;
+            color: #0A5D54;
+        }
+
+        .box-exercise {
+            background-color: #EAF6F4;
+            border-left: 4px solid #3AE2D6;
+        }
+
+        .qr-placeholder {
+            border: 2px dashed #0A5D54;
+            background-color: #F7FCFB;
+            color: #0A5D54;
+        }
+
+        @media print {
+            @page { size: A4; margin: 0; }
+            body { background-color: #ffffff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .no-print { display: none !important; }
+            .page { 
+                margin: 0 !important; box-shadow: none !important; border: none !important;
+                height: 297mm; min-height: 297mm; max-height: 297mm; overflow: hidden;
+                page-break-after: always; break-after: page;
+            }
+            .page:last-of-type { page-break-after: avoid !important; break-after: avoid !important; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="no-print fixed top-6 right-6 z-50">
+        <button onclick="window.print()" class="bg-teal-900 hover:bg-teal-800 text-white font-bold py-3 px-6 rounded-full shadow-2xl flex items-center gap-2 transition transform hover:scale-105">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            Cetak / Simpan PDF
+        </button>
+    </div>
+
+    <!-- ================= PAGE 1: COVER ================= -->
+    <div class="page" style="padding: 0; overflow: hidden;">
+        <div class="cover-bg"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" style="transform: translate(30%, -30%);"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-teal-900/20 rounded-full blur-3xl" style="transform: translate(-30%, 30%);"></div>
+        <div class="absolute top-1/2 left-1/2 w-full h-[1px] bg-white/20" style="transform: translate(-50%, -50%) rotate(-45deg);"></div>
+
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-10">
+            <div class="w-24 h-24 bg-white/10 backdrop-blur-lg rounded-full flex items-center justify-center mb-6 border border-white/30 shadow-2xl">
+                <span class="text-white font-bold text-2xl tracking-widest">SEJATI</span>
+            </div>
+            
+            <h2 class="text-lg font-light text-teal-50 tracking-widest uppercase mb-4">Panduan 30 Hari Mindfulness</h2>
+            <h1 class="text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight drop-shadow-lg">Ruang<br>Di Antara</h1>
+            
+            <div class="w-24 h-1 bg-white/40 rounded-full mb-6"></div>
+            <p class="text-xl font-medium text-white mb-2">"Menemukan Ketenangan di Tengah Pikiran yang Tak Pernah Diam"</p>
+            <p class="text-sm text-teal-100/80 max-w-md mx-auto leading-relaxed mt-4">
+                Didukung penuh oleh aplikasi <b>Anti Anxiety</b> — Ruang tenang & kendali diri dalam genggaman.
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 2: COPYRIGHT & DISCLAIMER ================= -->
+    <div class="page">
+        <div class="flex-1 flex flex-col justify-end pb-20 text-center text-slate-500">
+            <h3 class="font-bold text-slate-800 text-xl mb-2">Ruang Di Antara</h3>
+            <p class="mb-6">Menemukan Ketenangan di Tengah Pikiran yang Tak Pernah Diam</p>
+            
+            <p class="text-sm mb-2">Copyright &copy; 2026 oleh SEJATI.</p>
+            <p class="text-sm mb-8">Seluruh hak cipta dilindungi undang-undang.</p>
+            
+            <p class="text-xs max-w-md mx-auto leading-relaxed mb-4">
+                Dilarang memperbanyak, menyalin, atau mendistribusikan sebagian atau seluruh isi buku ini dalam bentuk apa pun, baik secara elektronik maupun mekanis, tanpa izin tertulis dari penulis.
+            </p>
+            <p class="text-xs max-w-md mx-auto leading-relaxed">
+                <b>Disclaimer:</b> Buku ini dibuat untuk tujuan edukasi dan pengembangan diri. Isi buku ini bukanlah pengganti nasihat medis, diagnosis, atau perawatan psikologis profesional. Jika Anda mengalami gangguan kecemasan berat, trauma, atau depresi, sangat disarankan untuk mencari bantuan dari tenaga kesehatan mental profesional.
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 3: DAFTAR ISI ================= -->
+    <div class="page">
+        <div class="mb-10">
+            <h2 class="chapter-title text-3xl font-bold mb-2">Daftar Isi</h2>
+            <div class="w-16 h-1 bg-teal-600 mt-2 rounded-full"></div>
+        </div>
+        
+        <div class="font-book text-slate-700 text-[16px] flex-1">
+            <ul class="space-y-4">
+                <li class="flex justify-between border-b border-slate-200 pb-2">
+                    <span>Kata Pengantar: Mengapa Buku Ini Ada</span>
+                    <span class="text-teal-600 font-bold">3</span>
+                </li>
+                <li class="flex justify-between border-b border-slate-200 pb-2">
+                    <span>Bab 1: Ketika Pikiran Tidak Bisa Diam</span>
+                    <span class="text-teal-600 font-bold">4</span>
+                </li>
+                <li class="flex justify-between border-b border-slate-200 pb-2">
+                    <span>Bab 2: Peta Batin: Membaca Sinyal Tubuh</span>
+                    <span class="text-teal-600 font-bold">6</span>
+                </li>
+                <li class="flex justify-between border-b border-slate-200 pb-2">
+                    <span>Bab 3: Napas sebagai Jangkar</span>
+                    <span class="text-teal-600 font-bold">8</span>
+                </li>
+                <li class="flex justify-between border-b border-slate-200 pb-2">
+                    <span>Bab 4: Ruang di Antara Stimulus dan Respons</span>
+                    <span class="text-teal-600 font-bold">10</span>
+                </li>
+                <li class="flex justify-between border-b border-slate-200 pb-2">
+                    <span>Bab 5: Melepaskan Kendali Tanpa Kehilangan Arah</span>
+                    <span class="text-teal-600 font-bold">12</span>
+                </li>
+                <li class="flex justify-between border-b border-slate-200 pb-2">
+                    <span>Bab 6: Diri Sejati di Tengah Kekacauan</span>
+                    <span class="text-teal-600 font-bold">14</span>
+                </li>
+                <li class="flex justify-between border-b border-slate-200 pb-2">
+                    <span>Bab 7: Perjalanan yang Tidak Pernah Selesai</span>
+                    <span class="text-teal-600 font-bold">16</span>
+                </li>
+                <li class="flex justify-between border-b border-slate-200 pb-2">
+                    <span>Rencana Integrasi 30 Hari</span>
+                    <span class="text-teal-600 font-bold">18</span>
+                </li>
+                <li class="flex justify-between border-b border-slate-200 pb-2">
+                    <span>Tentang Penulis</span>
+                    <span class="text-teal-600 font-bold">19</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 4: PREFACE ================= -->
+    <div class="page">
+        <div class="mb-8">
+            <h2 class="chapter-title text-3xl font-bold mb-2">Kata Pengantar</h2>
+            <h3 class="text-slate-500 text-sm tracking-widest uppercase">Mengapa Buku Ini Ada</h3>
+            <div class="w-16 h-1 bg-teal-600 mt-4 rounded-full"></div>
+        </div>
+        
+        <div class="font-book text-justify text-slate-700 leading-loose text-[15px] flex-1">
+            <p class="font-quote text-3xl text-teal-700 mb-6 text-center leading-tight">"Kedamaian bukanlah ketiadaan badai, melainkan ketenangan di dalam badai itu sendiri."</p>
+            
+            <p class="mb-5">Jika kamu membaca ini, mungkin ada bagian dari dirimu yang lelah. Lelah berpura-pura baik-baik saja di depan rekan kerja, lelah meredam kecemasan yang datang tanpa diundang setiap kali kamu membuka ponsel, atau lelah mencari "kedamaian" yang katanya ada di dalam diri, tapi sulit sekali ditemukan.</p>
+            
+            <p class="mb-5">Buku ini lahir dari pergulatan saya sendiri. Saya pernah berada di titik di mana pikiran saya terasa seperti ruangan yang penuh asap—sesak, gelap, dan tidak ada jalan keluar. Saya mencoba berbagai cara untuk melarikan diri: sibuk bekerja, menonton serial sampai larut malam, hingga mencari validasi dari orang lain. Tidak ada yang berhasil. Kecemasan itu selalu menemukan jalan pulang.</p>
+            
+            <p class="mb-5">Dalam perjalanan mencari "Diri Sejati", saya menyadari satu hal fundamental: <b>kita tidak bisa mencapai pencerahan spiritual jika kita masih diteror oleh kecemasan sehari-hari.</b> Kita tidak bisa duduk bermeditasi dengan tenang jika jantung kita berdebar kencang karena serangan panik. Kita harus membangun fondasi psikologis dulu sebelum melangkah ke ranah spiritual yang lebih tinggi.</p>
+
+            <p class="mb-5">Buku ini adalah fondasi itu. Ini adalah peta perjalanan dari <b>reaktivitas</b> (dikuasai emosi) menuju <b>kesadaran</b> (mengamati emosi). Saya memadukan pendekatan psikologi modern seperti CBT (Cognitive Behavioral Therapy) dan mindfulness, dengan kebijaksanaan spiritual tentang mengenali siapa diri kita sebenarnya.</p>
+            
+            <p class="mb-5">Buku ini tidak dirancang untuk dibaca cepat lalu dilupakan. Saya ingin kamu menjadikannya sebagai pendamping. Di setiap bab, ada latihan praktis dan kode QR yang menghubungkanmu ke aplikasi <b>Anti Anxiety</b>—ruang tenang digital yang akan membantumu mempraktikkan apa yang kamu baca secara mandiri, privat, dan tanpa biaya.</p>
+            
+            <p>Selamat datang di ruang di antara stimulus dan respons. Selamat datang di perjalanan pulang menuju dirimu.</p>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 5-6: BAB 1 ================= -->
+    <div class="page">
+        <div class="mb-8 border-b border-slate-200 pb-4">
+            <p class="text-teal-600 font-bold tracking-widest text-sm mb-1 uppercase">Bab 1</p>
+            <h2 class="chapter-title text-3xl font-bold">Ketika Pikiran Tidak Bisa Diam</h2>
+        </div>
+        
+        <div class="font-book text-justify text-slate-700 leading-loose text-[15px] flex-1">
+            <p class="mb-4">Pukul dua pagi. Kamar gelap, telinga mendengar detik jam dinding, tapi kepalamu terang benderang seperti stadion yang sedang menggelar konser.</p>
+            
+            <p class="mb-4">Aku pernah berada di sana—berbaring telentang, menatap langit-langit, sementara pikiranku berlari seperti stasiun televisi yang tidak bisa dimatikan. Satu saluran memutar percakapan yang terjadi enam jam lalu: <i>"Kenapa aku bilang itu? Bodoh sekali."</i> Saluran lain memutar skenario bencana minggu depan: <i>"Bagaimana kalau proyekku gagal? Bagaimana kalau aku dipecat?"</i> Dan saluran terakhir, yang paling menyiksa, memutar penyesalan masa lalu yang sudah tidak bisa diubah.</p>
+            
+            <p class="mb-4">Malam itu, aku menyadari sesuatu yang aneh. Aku tidak sedang memikirkan masalah nyata. <b>Aku sedang memikirkan pikiranku sendiri.</b> Ada lapisan di dalam diriku yang mengamati semua kekacauan ini, dan lapisan itu lelah. Bukan lelah karena masalahnya, tapi lelah karena harus terus-menerus menjadi saksi dari pikirannya sendiri.</p>
+
+            <div class="bg-slate-100 p-4 border-l-4 border-slate-400 my-6 italic text-slate-600 text-sm rounded-r-lg">
+                <b>[SISIPKAN CERITA PRIBADI ANDA DI SINI]</b><br>
+                Ceritakan momen paling mencekam saat Anda mengalami overthinking atau serangan kecemasan. Di mana Anda? Apa yang Anda rasakan secara fisik (jantung berdebar, keringat dingin, sesak napas)? Bagaimana perasaan Anda saat itu? Buat pembaca merasa, "Ya Tuhan, aku pernah ada di posisi yang persis sama."
+            </div>
+
+            <p class="mb-4"><b>Anatomi Overthinking</b><br>
+            Secara ilmiah, otak kita memiliki apa yang disebut <i>Default Mode Network</i> (DMN). Ini adalah jaringan di otak yang aktif ketika kita tidak sedang melakukan tugas spesifik—misalnya saat kita sedang mandi, berjalan, atau sebelum tidur. Sayangnya, pada orang yang rentan cemas, DMN ini bekerja terlalu over-time. Ia terus-menerus memutar ulang masa lalu dan mengkhawatirkan masa depan. Ini adalah mekanisme bertahan hidup yang salah sasaran.</p>
+
+            <p class="mb-4"><b>Bukan Tentang Berhenti Berpikir</b><br>
+            Ketika pertama kali mendengar kata <i>mindfulness</i>, reaksiku sama seperti kebanyakan orang: <i>"Berarti aku harus mengosongkan pikiran? Mustahil. Pikiranku bahkan tidak bisa diam tiga detik."</i> Aku salah paham selama bertahun-tahun.</p>
+
+            <p class="mb-4">Mindfulness bukan tentang menghentikan pikiran. Itu seperti meminta jantung berhenti berdetak. Pikiran itu alamiah. Yang bisa kita latih adalah <b>mengubah hubungan kita dengannya</b>.</p>
+
+            <p class="mb-4">Bayangkan kamu duduk di tepi jalan raya. Mobil-mobil lewat—itu pikiranmu. Kalau kamu berdiri di tengah jalan dan mencoba menghentikan setiap mobil, kamu akan tertabrak, kelelahan, dan marah. Tapi kalau kamu duduk di trotoar, memperhatikan mobil-mobil itu lewat tanpa harus naik ke salah satunya—itu mindfulness. Kamu tidak menghentikan lalu lintas. Kamu hanya <b>pindah posisi</b>.</p>
+
+            <p class="mb-4"><b>Kecemasan sebagai Sinyal</b><br>
+            Kecemasan bukan gangguan acak. Ia adalah sistem alarm kuno yang bekerja terlalu rajin. Tubuhmu bereaksi terhadap notifikasi email atasanmu seperti dulu nenek moyang kita bereaksi terhadap suaraa ranting patah di semak-semak—dengan kesiapan penuh untuk melarikan diri. Alarmnya tidak rusak. Ia hanya <b>tidak bisa membedakan</b> antara harimau dan notifikasi ponsel.</p>
+
+            <p class="mb-4">Begitu aku berhenti memperlakukan kecemasan sebagai musuh yang harus dibasmi, dan mulai memperlakukannya sebagai sinyal yang perlu dibaca, segalanya bergeser. Aku mulai bertanya: <i>"Pesan apa yang kamu bawa hari ini?"</i> alih-alih <i>"Kapan kamu akan pergi?"</i>.</p>
+        </div>
+
+        <div class="box-exercise p-5 rounded-r-xl mt-4">
+            <h4 class="font-bold text-teal-900 mb-2 flex items-center gap-2">
+                <span>✍️</span> Refleksi Bab 1
+            </h4>
+            <p class="text-sm text-slate-700 mb-3">Ambil waktu lima menit. Tidak perlu jawaban yang "benar"—hanya jawaban yang jujur.</p>
+            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-2 mb-4">
+                <li>Kapan terakhir kali kamu merasa pikiranmu tidak bisa diam? Di mana kamu berada, dan apa yang sedang terjadi?</li>
+                <li>Kalau kecemasanmu bisa berbicara hari ini, <b>apa yang akan ia katakan</b> bahwa kamu belum mau dengar?</li>
+            </ol>
+            <div class="qr-placeholder p-4 rounded-lg text-center text-sm font-bold">
+                [ QR CODE: anti-anxiety.pages.dev/track ]<br>
+                <span class="font-normal text-xs mt-1 block">Pindai untuk mulai memetakan polamu di aplikasi Anti Anxiety.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 7-8: BAB 2 ================= -->
+    <div class="page">
+        <div class="mb-8 border-b border-slate-200 pb-4">
+            <p class="text-teal-600 font-bold tracking-widest text-sm mb-1 uppercase">Bab 2</p>
+            <h2 class="chapter-title text-3xl font-bold">Peta Batin: Membaca Sinyal Tubuh</h2>
+        </div>
+        
+        <div class="font-book text-justify text-slate-700 leading-loose text-[15px] flex-1">
+            <p class="mb-4">Kecemasan jarang datang tiba-tiba seperti petir. Ia biasanya datang seperti air yang merembes perlahan di dinding sebelum akhirnya membanjiri seluruh ruangan.</p>
+            
+            <p class="mb-4">Masalahnya, kita terlalu sering mengabaikan rembesan itu. Kita mengabaikan bahu yang menegang, rahang yang mengeras, atau napas yang tiba-tiba menjadi pendek. Kita baru sadar saat badai sudah di depan mata—saat dada terasa sesak dan air mata tiba-tiba jatuh tanpa alasan.</p>
+            
+            <p class="mb-4"><b>Tubuh adalah peta batinmu.</b> Sebelum pikiran sadarmu menyadari bahwa kamu sedang cemas, tubuhmu sudah berteriak. Jantung berdebar, perut mulas, telapak tangan berkeringat. Dalam psikologi, ini disebut <i>Window of Tolerance</i> (Jendela Toleransi). Ketika kamu keluar dari jendela ini (karena stres berlebih), tubuhmu masuk ke mode <i>Fight, Flight, Freeze, atau Fawn</i> (Melawan, Kabur, Membeku, atau Menyenangkan Orang Lain).</p>
+
+            <p class="mb-4">Latihan pertama dalam <i>mindfulness</i> adalah menjadi arkeolog bagi dirimu sendiri. Kamu mulai memetakan: <i>Di bagian tubuh mana kecemasan itu paling sering bersemayam?</i></p>
+
+            <div class="bg-slate-100 p-4 border-l-4 border-slate-400 my-6 italic text-slate-600 text-sm rounded-r-lg">
+                <b>[SISIPKAN CERITA PRIBADI ANDA DI SINI]</b><br>
+                Ceritakan gejala fisik yang paling sering Anda alami saat cemas (misal: tengkuk kaku, tangan gemetar, atau mual). Bagaimana Anda akhirnya menyadari bahwa itu adalah sinyal tubuh yang butuh perhatian, bukan sekadar penyakit fisik?
+            </div>
+
+            <p class="mb-4"><b>Latihan: Pemindaian Tubuh (Body Scan) 3 Menit</b><br>
+            Duduklah dengan nyaman. Pejamkan mata. Tarik napas dalam.<br>
+            Sekarang, pindai tubuhmu dari ujung kepala hingga ujung kaki. Jangan menilai apa pun. Jika kamu menemukan ketegangan di leher, cukup katakan dalam hati, <i>"Oh, ada ketegangan di sini."</i> Jangan berusaha menghilangkannya. Kesadaran itu sendiri yang akan melunakkannya. Ini adalah cara tubuh mengirimkan pesan kepada pikiran, dan cara pikiran mendengarkan tubuh.</p>
+        </div>
+
+        <div class="box-exercise p-5 rounded-r-xl mt-4">
+            <h4 class="font-bold text-teal-900 mb-2 flex items-center gap-2">
+                <span>✍️</span> Refleksi Bab 2
+            </h4>
+            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-2 mb-4">
+                <li>Di bagian tubuh mana kamu paling sering merasakan kecemasan?</li>
+                <li>Jika rasa cemas itu adalah seorang utusan, pesan apa yang sedang ia sampaikan kepadamu hari ini?</li>
+            </ol>
+            <div class="qr-placeholder p-4 rounded-lg text-center text-sm font-bold">
+                [ QR CODE: anti-anxiety.pages.dev/track ]<br>
+                <span class="font-normal text-xs mt-1 block">Gunakan fitur mood tracker di aplikasi selama tiga hari ke depan.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 9-10: BAB 3 ================= -->
+    <div class="page">
+        <div class="mb-8 border-b border-slate-200 pb-4">
+            <p class="text-teal-600 font-bold tracking-widest text-sm mb-1 uppercase">Bab 3</p>
+            <h2 class="chapter-title text-3xl font-bold">Napas sebagai Jangkar</h2>
+        </div>
+        
+        <div class="font-book text-justify text-slate-700 leading-loose text-[15px] flex-1">
+            <p class="mb-4">Ketika pikiran berlari ke masa depan (kecemasan) atau ke masa lalu (penyesalan), napas adalah satu-satunya hal yang selalu berada di <b>saat ini</b>. Napasmu tidak pernah ada di masa depan. Ia selalu di sini, di detik ini.</p>
+            
+            <p class="mb-4">Napas adalah jangkar. Ketika kamu menyadari pikiranmu hanyut dalam pusaran overthinking, kamu tidak perlu memarahi dirimu sendiri. Kamu hanya perlu kembali ke jangkar. <i>Tarik napas... hembuskan...</i></p>
+            
+            <p class="mb-4">Ini terdengar terlalu sederhana untuk menyelesaikan masalah yang rumit. Tapi <i>mindfulness</i> bukan tentang menyelesaikan masalah dengan cepat; ia tentang <b>hadir</b> di tengah masalah tanpa dikuasainya.</p>
+
+            <div class="bg-slate-100 p-4 border-l-4 border-slate-400 my-6 italic text-slate-600 text-sm rounded-r-lg">
+                <b>[SISIPKAN CERITA PRIBADI ANDA DI SINI]</b><br>
+                Bagikan pengalaman pertamamu mencoba meditasi napas. Apakah rasanya canggung? Apakah pikiranmu malah makin ribut karena kamu berusaha fokus? Tuliskan hal itu agar pembaca merasa normal jika mereka mengalami hal yang sama.
+            </div>
+
+            <p class="mb-4"><b>Fisiologi di Balik Napas</b><br>
+            Saat kamu merasa cemas, sistem saraf simpatis (mode melawan/kabur) mengambil alih. Jantung berdetak cepat, pernapasan menjadi pendek dan dangkal karena kamu bernapas menggunakan dada, bukan diafragma. </p>
+
+            <p class="mb-4">Dengan sengaja memperlambat napas, terutama memperpanjang waktu embusan napas, kamu mengaktifkan sistem saraf parasimpatis (mode istirahat dan cerna). Ini adalah "tombol reset" biologis yang diberikan Tuhan kepada kita. Kamu tidak perlu menunggu pikiranmu tenang untuk bernapas dengan benar; bernapaslah dengan benar, dan pikiranmu akan menyusul menjadi tenang.</p>
+
+            <p class="mb-4"><b>Latihan: Kotak Pernapasan (Box Breathing)</b><br>
+            Teknik ini digunakan oleh para atlet, pilot, dan bahkan pasukan khusus untuk menenangkan sistem saraf dalam hitungan detik.<br><br>
+            - Tarik napas selama 4 detik.<br>
+            - Tahan selama 4 detik.<br>
+            - Hembuskan selama 4 detik.<br>
+            - Tahan selama 4 detik.<br>
+            Ulangi empat kali. Bayangkan kamu sedang menggambar kotak di udara dengan napasmu.</p>
+        </div>
+
+        <div class="box-exercise p-5 rounded-r-xl mt-4">
+            <h4 class="font-bold text-teal-900 mb-2 flex items-center gap-2">
+                <span>✍️</span> Refleksi Bab 3
+            </h4>
+            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-2 mb-4">
+                <li>Apa yang terjadi pada pikiranmu saat kamu hanya fokus memperhatikan napas?</li>
+                <li>Kapan waktu terbaik bagimu untuk "kembali ke jangkar" di hari yang sibuk?</li>
+            </ol>
+            <div class="qr-placeholder p-4 rounded-lg text-center text-sm font-bold">
+                [ QR CODE: anti-anxiety.pages.dev/breathe ]<br>
+                <span class="font-normal text-xs mt-1 block">Saatnya praktik. Pindai untuk membuka pemandu napas visual di aplikasi Anti Anxiety.</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
